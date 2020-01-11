@@ -1,7 +1,12 @@
 {
   "Unit Tests": {
     "coverage": {
+      "/Users/williammeighan/turing/1module/projects/enigma/lib/key.rb": [
+        1,
+        null,
+        null
+      ]
     },
-    "timestamp": 1578702123
+    "timestamp": 1578702623
   }
 }
