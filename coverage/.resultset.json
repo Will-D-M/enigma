@@ -5,7 +5,7 @@
         1,
         null,
         1,
-        2,
+        0,
         null,
         null,
         null
@@ -17,13 +17,37 @@
         1,
         null,
         1,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/williammeighan/turing/1module/projects/enigma/test/shift_test.rb": [
         1,
         1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/williammeighan/turing/1module/projects/enigma/lib/shift.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
         null,
         null,
         null
       ]
     },
-    "timestamp": 1578769624
+    "timestamp": 1578770660
   }
 }
