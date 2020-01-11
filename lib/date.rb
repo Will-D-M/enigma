@@ -1,4 +1,4 @@
-class Offset
+class Date
 
   def self.current_date
     Time.now.strftime("%d%m%y")
