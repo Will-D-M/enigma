@@ -3,17 +3,9 @@ require_relative '../lib/key'
 
 class KeyTest < Minitest::Test
 
-  def setup
-    @key = Key.new
-  end
-
-  def test_it_exists
-    assert_instance_of Key, @key
-  end
-
   def test_it_can_generate_random_number_string
-    assert_instance_of String, @key.random_number_string
-    assert_equal 5, @key.random_number_string.length
+    assert_instance_of String, Key.random_number_string
+    assert_equal 5, Key.random_number_string.length
   end
 
 end
