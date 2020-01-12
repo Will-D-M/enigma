@@ -1,8 +1,5 @@
 require_relative 'test_helper'
 require_relative '../lib/enigma'
-require_relative '../lib/shift'
-require_relative '../lib/date'
-require_relative '../lib/key'
 
 class Enigmatest < Minitest::Test
 
@@ -23,9 +20,13 @@ class Enigmatest < Minitest::Test
     assert_equal expected, @enigma.encrypt("Hello world!", "02715", "040895")
   end
 
-  # def test_it_can_decrypt
-  #   expected = { encryption: "hello world", key: "02715", date: "040895" }
-  #   assert_equal expected, @enigma.decrypt("keder ohulw", "02715", "040895")
-  # end
+  def test_it_can_return_decrypted_message
+    assert_equal "hello world", @enigma.decrypted_message("keder ohulw", "02715", "040895")
+  end
+
+  def test_it_can_decrypt
+    expected = { encryption: "hello world", key: "02715", date: "040895" }
+    assert_equal expected, @enigma.decrypt("keder ohulw", "02715", "040895")
+  end
 
 end

@@ -36,4 +36,32 @@ class Enigma
     }
   end
 
+  def decrypted_message(message, key = Key.random_number_string, date = Date.current_date)
+    message.downcase.chars.map.with_index do |character, index|
+      if !@alphabet.include?(character)
+        character
+      elsif index % 4 == 0
+        index_position = @alphabet.index(character)
+        @alphabet[(index_position - (Shift.a_index(key, date))) % 27]
+      elsif index % 4 == 1
+        index_position = @alphabet.index(character)
+        @alphabet[(index_position - (Shift.b_index(key, date))) % 27]
+      elsif index % 4 == 2
+        index_position = @alphabet.index(character)
+        @alphabet[(index_position - (Shift.c_index(key, date))) % 27]
+      elsif index % 4 == 3
+        index_position = @alphabet.index(character)
+        @alphabet[(index_position - (Shift.d_index(key, date))) % 27]
+      end
+    end.join
+  end
+
+  def decrypt(message, key = Key.random_number_string, date = Date.current_date)
+    {
+      encryption: decrypted_message(message, key, date),
+      key: key,
+      date: date
+    }
+  end
+
 end
