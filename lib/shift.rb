@@ -9,7 +9,12 @@ class Shift
   end
 
   def self.initial_key(key, date)
-    [key.chars.values_at(0, 1).join, key.chars.values_at(1, 2).join, key.chars.values_at(2, 3).join, key.chars.values_at(3, 4).join]
+    [
+      key.chars.values_at(0, 1).join,
+      key.chars.values_at(1, 2).join,
+      key.chars.values_at(2, 3).join,
+      key.chars.values_at(3, 4).join
+    ]
   end
 
   def self.a_index(key, date)
