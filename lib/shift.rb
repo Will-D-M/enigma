@@ -28,12 +28,4 @@ class Shift
     initial_key(key, date)[3].to_i + initial_offset(key, date)[3].to_i
   end
 
-  def self.final_shift(key, date)
-    { "a" => a_index(key, date),
-      "b" => b_index(key, date),
-      "c" => c_index(key, date),
-      "d" => d_index(key, date)
-    }
-  end
-
 end

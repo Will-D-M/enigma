@@ -31,9 +31,4 @@ class ShiftTest < Minitest::Test
     assert_equal 20, Shift.d_index("02715", "040895")
   end
 
-  def test_it_can_find_final_shift
-    expected = {"a"=>3, "b"=>27, "c"=>73, "d"=>20}
-    assert_equal expected, Shift.final_shift("02715", "040895")
-  end
-
 end
