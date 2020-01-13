@@ -21,7 +21,7 @@ class Enigmatest < Minitest::Test
   end
 
   def test_it_can_return_decrypted_message
-    assert_equal "hello world", @enigma.decrypted_message("keder ohulw", "02715", "040895")
+    assert_equal "hello world12345!@#$%", @enigma.decrypted_message("keder ohulw12345!@#$%", "02715", "040895")
   end
 
   def test_it_can_decrypt
