@@ -1,4 +1,7 @@
 require_relative 'key'
+require_relative 'date'
+require_relative 'shift'
+require 'date'
 
 class Enigma
 
