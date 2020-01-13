@@ -5,11 +5,11 @@ class Shift
   end
 
   def self.initial_offset(key, date)
-    date_squared(key, date).split("").values_at(-4, -3, -2, -1)
+    date_squared(key, date).chars.values_at(-4, -3, -2, -1)
   end
 
   def self.initial_key(key, date)
-    [key.split("").values_at(0, 1).join, key.split("").values_at(1, 2).join, key.split("").values_at(2, 3).join, key.split("").values_at(3, 4).join]
+    [key.chars.values_at(0, 1).join, key.chars.values_at(1, 2).join, key.chars.values_at(2, 3).join, key.chars.values_at(3, 4).join]
   end
 
   def self.a_index(key, date)
