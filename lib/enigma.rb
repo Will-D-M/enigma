@@ -14,7 +14,6 @@ class Enigma
   def encrypted_message(message, key = Key.random_number_string, date = Date.current_date)
     message.downcase.chars.map.with_index do |character, index|
       shifter = Shift.new(key, date)
-      index
       if !@alphabet.include?(character)
         character
       elsif index % 4 == 0
