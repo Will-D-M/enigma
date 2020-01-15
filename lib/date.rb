@@ -1,3 +1,5 @@
+require 'date'
+
 class Date
 
   def self.current_date
