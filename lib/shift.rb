@@ -1,39 +1,30 @@
 class Shift
 
-  def self.date_squared(key, date)
-    ((date.to_i) ** 2).to_s
+  attr_reader :key, :date
+
+  def initialize(key, date)
+    @key = key
+    @date = date
   end
 
-  def self.initial_offset(key, date)
-    date_squared(key, date).split("").values_at(-4, -3, -2, -1)
+  def date_squared
+    ((@date.to_i) ** 2).to_s
   end
 
-  def self.initial_key(key, date)
-    [key.split("").values_at(0, 1).join, key.split("").values_at(1, 2).join, key.split("").values_at(2, 3).join, key.split("").values_at(3, 4).join]
+  def initial_offset
+    date_squared.chars.values_at(-4, -3, -2, -1)
   end
 
-  def self.a_index(key, date)
-    initial_key(key, date)[0].to_i + initial_offset(key, date)[0].to_i
+  def initial_key
+    [
+      key.chars.values_at(0, 1).join,
+      key.chars.values_at(1, 2).join,
+      key.chars.values_at(2, 3).join,
+      key.chars.values_at(3, 4).join
+    ]
   end
 
-  def self.b_index(key, date)
-    initial_key(key, date)[1].to_i + initial_offset(key, date)[1].to_i
+  def shift_number(index)
+    initial_key[index].to_i + initial_offset[index].to_i
   end
-
-  def self.c_index(key, date)
-    initial_key(key, date)[2].to_i + initial_offset(key, date)[2].to_i
-  end
-
-  def self.d_index(key, date)
-    initial_key(key, date)[3].to_i + initial_offset(key, date)[3].to_i
-  end
-
-  def self.final_shift(key, date)
-    { "a" => a_index(key, date),
-      "b" => b_index(key, date),
-      "c" => c_index(key, date),
-      "d" => d_index(key, date)
-    }
-  end
-
 end

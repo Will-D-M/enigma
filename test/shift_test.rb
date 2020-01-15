@@ -1,39 +1,36 @@
 require_relative 'test_helper'
 require_relative '../lib/shift'
+require_relative '../lib/key'
+require_relative '../lib/date'
 
 class ShiftTest < Minitest::Test
 
+  def setup
+    @shift = Shift.new("02715", "040895")
+  end
+
+  def test_it_has_attributes
+    assert_equal "02715", @shift.key
+    assert_equal "040895", @shift.date
+  end
+
   def test_date_sqaured
-    assert_equal "1672401025", Shift.date_squared("02715", "040895")
+    assert_equal "1672401025", @shift.date_squared
   end
 
   def test_initial_offset
-    assert_equal ["1", "0", "2", "5"], Shift.initial_offset("02715", "040895")
+    assert_equal ["1", "0", "2", "5"], @shift.initial_offset
   end
 
   def test_initial_key_array
-    assert_equal ["02", "27", "71", "15"], Shift.initial_key("02715", "040895")
+    assert_equal ["02", "27", "71", "15"], @shift.initial_key
   end
 
-  def test_a_index
-    assert_equal 3, Shift.a_index("02715", "040895")
-  end
-
-  def test_b_index
-    assert_equal 27, Shift.b_index("02715", "040895")
-  end
-
-  def test_c_index
-    assert_equal 73, Shift.c_index("02715", "040895")
-  end
-
-  def test_d_index
-    assert_equal 20, Shift.d_index("02715", "040895")
-  end
-
-  def test_it_can_find_final_shift
-    expected = {"a"=>3, "b"=>27, "c"=>73, "d"=>20}
-    assert_equal expected, Shift.final_shift("02715", "040895")
+  def test_shift_number
+    assert_equal 3, @shift.shift_number(0)
+    assert_equal 27, @shift.shift_number(1)
+    assert_equal 73, @shift.shift_number(2)
+    assert_equal 20, @shift.shift_number(3)
   end
 
 end
