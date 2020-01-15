@@ -1,10 +1,17 @@
 require_relative 'test_helper'
 require_relative '../lib/shift'
+require_relative '../lib/key'
+require_relative '../lib/date'
 
 class ShiftTest < Minitest::Test
 
   def setup
     @shift = Shift.new("02715", "040895")
+  end
+
+  def test_it_has_attributes
+    assert_equal "02715", @shift.key
+    assert_equal "040895", @shift.date
   end
 
   def test_date_sqaured
