@@ -11,23 +11,20 @@ class Enigma
     @alphabet = ("a".."z").to_a << " "
   end
 
-  def index_position(character)
-    @alphabet.index(character)
-  end
-
   def encrypted_message(message, key = Key.random_number_string, date = Date.current_date)
     message.downcase.chars.map.with_index do |character, index|
       shifter = Shift.new(key, date)
+      index
       if !@alphabet.include?(character)
         character
       elsif index % 4 == 0
-        @alphabet[(index_position(character) + (shifter.shift_number(0))) % 27]
+        @alphabet[(@alphabet.index(character) + (shifter.shift_number(0))) % 27]
       elsif index % 4 == 1
-        @alphabet[(index_position(character) + (shifter.shift_number(1))) % 27]
+        @alphabet[(@alphabet.index(character) + (shifter.shift_number(1))) % 27]
       elsif index % 4 == 2
-        @alphabet[(index_position(character) + (shifter.shift_number(2))) % 27]
+        @alphabet[(@alphabet.index(character) + (shifter.shift_number(2))) % 27]
       elsif index % 4 == 3
-        @alphabet[(index_position(character) + (shifter.shift_number(3))) % 27]
+        @alphabet[(@alphabet.index(character) + (shifter.shift_number(3))) % 27]
       end
     end.join
   end
@@ -46,13 +43,13 @@ class Enigma
       if !@alphabet.include?(character)
         character
       elsif index % 4 == 0
-        @alphabet[(index_position - (shifter.shift_number(0))) % 27]
+        @alphabet[(@alphabet.index(character) - (shifter.shift_number(0))) % 27]
       elsif index % 4 == 1
-        @alphabet[(index_position - (shifter.shift_number(1))) % 27]
+        @alphabet[(@alphabet.index(character) - (shifter.shift_number(1))) % 27]
       elsif index % 4 == 2
-        @alphabet[(index_position - (shifter.shift_number(2))) % 27]
+        @alphabet[(@alphabet.index(character) - (shifter.shift_number(2))) % 27]
       elsif index % 4 == 3
-        @alphabet[(index_position - (shifter.shift_number(3))) % 27]
+        @alphabet[(@alphabet.index(character) - (shifter.shift_number(3))) % 27]
       end
     end.join
   end
